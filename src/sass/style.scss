@@ -71,26 +71,26 @@ h1 {
 	font-size: 2em;
 	line-height: 1em;
 	text-indent: -1px;
-	margin: 2em 0 -0.5em;
+	margin: 1em 0 1em;
 }
 
 h2 {
 	font-size: 1.75em;
 	line-height: 1.111em;
 	text-indent: -1px;
-	margin: 2.286em 0 -0.571em;
+	margin: 1.143em 0 1.143em;
 }
 
 h3 {
 	font-size: 1.5em;
 	line-height: 1.334em;
-	margin: 2em 0 -0.667em;
+	margin: 1em 0 1em;
 }
 
 h4 {
 	font-size: 1.25em;
 	line-height: 1.2em;
-	margin: 2.4em 0 -0.8em;
+	margin: 1.2em 0 1.2em;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -98,12 +98,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 p {
-    margin: 2em 0;
+    margin: 0 0 2em;
 }
 
 ul, ol {
-    margin: 2em 0;
-    padding-left: 30px;
+    margin: 0 0 2em;
+    padding-left: 2em;
+    box-sizing: border-box;
 }
 
 ul {
@@ -145,14 +146,14 @@ ol ol, ul ul, ul ol, ol ul {
 hr {
     display: block;
     height: 1px;
-    margin: 2em 0;
+    margin: 0 0 2em;
     padding: 0;
-	background: $color-gray-90;
+	  background: $color-gray-90;
     border: 0;
 }
 
 blockquote {
-    margin: 2em auto;
+    margin: 0 0 2em;
     padding: 1em;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -163,7 +164,7 @@ blockquote {
     background: $color-gray-98;
 }
 blockquote p {
-	margin: 1em auto;
+	margin: 0 0 1em;
 }
 blockquote p:first-child {
 	margin-top: 0;
@@ -187,7 +188,7 @@ small {
 
 
 dl {
-    margin: 2em 0;
+    margin: 0 0 2em;
     padding-left: 30px;
 }
 dl dt {
@@ -220,23 +221,23 @@ code, tt {
 	position: relative;
 	margin: 0 0.334em;
 	padding: 0.334em 0.667em;
-	font-family: 'Inconsolata', monospace, sans-serif;
+	font-family: monospace, sans-serif;
 	font-size: 0.75em;
 	white-space: pre;
 	background: $color-gray-98;
-    border: 1px solid $color-gray-90;
+  border: 1px solid $color-gray-90;
 	top: -2px;
 }
 
 pre {
 	position: relative;
-	margin: 2em auto;
+	margin: 0 0 2em;
 	padding: 1em;
 	overflow: hidden;
-	font-family: 'Inconsolata', monospace, sans-serif;
+	font-family: monospace, sans-serif;
 	white-space: pre;
 	background: $color-gray-98;
-    border: 1px solid $color-gray-90;
+  border: 1px solid $color-gray-90;
 	box-sizing: border-box;
 }
 pre .lines {
@@ -260,17 +261,23 @@ pre .lines .line {
 }
 
 pre code, pre tt {
+  display: block;
 	position: static;
 	top: auto;
 	margin: -1.334em -1.334em -1.334em 1.334em;
 	padding: 1.334em;
-	overflow: scroll;
+  overflow-x: auto;
 	font-size: 0.75em;
 	line-height: 2em;
 	white-space: pre;
 	background: transparent;
 	border: none;
 	vertical-align: inherit;
+}
+pre code.language-text {
+  overflow: hidden;
+  white-space: normal;
+  margin-left: -1.334em;
 }
 
 kbd {
@@ -290,7 +297,7 @@ kbd {
 table {
 	width: 100%;
 	max-width: 100%;
-	margin: 2em 0;
+	margin: 0 0 2em;
 	background-color: transparent;
 	border: 1px solid $color-gray-90;
 }
@@ -328,10 +335,106 @@ img {
 	display: block;
 	max-width: 100%;
 	height: auto;
-	margin: 2.5em auto;
+	margin: 0 0 2em;
 }
+
+img[src$="#full"] {
+  max-width: none;
+  width: 100vw;
+  margin: 3em 0;
+}
+
+.kg-image-card {
+  margin: 0 0 2em;
+  max-width: none !important;
+
+  &.kg-width-wide {
+    max-width: 48em !important;
+    min-width: 100%;
+    width: 75vw;
+  }
+
+  &.kg-width-full {
+    max-width: none;
+    width: 100vw;
+    margin-top: 2em;
+  }
+
+  .kg-image {
+    margin: 0 auto;
+  }
+
+  figcaption {
+    font-family: 'Fira Sans', sans-serif;
+    color: $color-blue-60;
+    text-align: center;
+    max-width: 32em;
+    margin: auto;
+  	font-size: 0.75em;
+  	line-height: 1.25em;
+  	padding: 0.667em 0;
+  }
+
+  .kg-image-full + figcaption {
+    margin-bottom: 1.334em;
+  }
+}
+
+.kg-gallery-card {
+  margin: 0 0 2em;
+  max-width: 48em !important;
+  min-width: 100%;
+  width: 75vw;
+
+  figcaption {
+    font-family: 'Fira Sans', sans-serif;
+    color: $color-blue-60;
+    text-align: center;
+    max-width: 32em;
+    margin: auto;
+  	font-size: 0.75em;
+  	line-height: 1.25em;
+  	padding: 0.667em 0;
+  }
+}
+
+.kg-gallery-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.kg-gallery-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.kg-gallery-image img {
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.kg-gallery-row:not(:first-of-type) {
+  margin: 0.75em 0 0 0;
+}
+
+.kg-gallery-image:not(:first-of-type) {
+  margin: 0 0 0 0.75em;
+}
+
+.kg-embed-card {
+  margin: 0 0 2em;
+
+  > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .fluid-width-video-wrapper {
-	margin: 2.5em auto;
+	margin: 0 0 2em;
 }
 
 .clear {
@@ -937,7 +1040,7 @@ img {
 	font-size: 0.75em;
 	font-weight: 400;
 	line-height: 1.334em;
-	opacity: 0.5;
+  color: $color-blue-60;
 }
 .has-cover .post-meta {
 	color: $color-white;
@@ -959,6 +1062,25 @@ img {
 .post-excerpt p {
 	margin: 0.5em 0 0;
 }
+.post-content {
+  padding: 2em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post-content > * {
+  min-width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
 .post-content a {
 	border-bottom: 1px solid $primary-color;
 }
@@ -966,20 +1088,13 @@ img {
 .post-content a:focus {
 	color: $primary-color;
 }
-.post-content img,
-.post-content .fluid-width-video-wrapper {
-	max-width: none;
-	width: 110%;
-	margin-left: -5%;
-}
-
 
 /* ==========================================================================
    Post Info
    ========================================================================== */
 
 .post-info {
-	margin-top: 6em;
+	margin-top: 2em;
 	overflow: hidden;
 }
 .post-share {
